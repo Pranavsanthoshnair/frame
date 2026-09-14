@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Photo Gallery</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #111;
+            color: #fff;
+            font-family: Georgia, "Times New Roman", serif;
+            padding: 50px 25px;
+        }
+
+        /* =========================
+           GALLERY HEADER
+        ========================== */
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .gallery-header .eyebrow {
+            color: #aaa;
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .gallery-header h1 {
+            font-size: clamp(36px, 6vw, 68px);
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .gallery-header p {
+            color: #999;
+            margin-top: 12px;
+            font-size: 16px;
+        }
+
+        /* =========================
+           GALLERY WALL
+        ========================== */
+
+        .gallery-wall {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            align-items: start;
+        }
+
+        /* =========================
+           PHOTO CARD
+        ========================== */
+
+        .photo-card {
+            background: #fff;
+            padding: 12px 12px 18px;
+            color: #111;
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.35);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-8px) rotate(0deg);
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Slightly irregular photo-wall effect */
+        .photo-card:nth-child(1) {
+            transform: rotate(-1.5deg);
+        }
+
+        .photo-card:nth-child(2) {
+            transform: rotate(1deg);
+        }
+
+        .photo-card:nth-child(3) {
+            transform: rotate(-0.8deg);
+        }
+
+        .photo-card:nth-child(4) {
+            transform: rotate(1.3deg);
+        }
+
+        .photo-card:nth-child(5) {
+            transform: rotate(-1deg);
+        }
+
+        .photo-card:nth-child(6) {
+            transform: rotate(1.5deg);
+        }
+
+        .photo-card:nth-child(1):hover,
+        .photo-card:nth-child(2):hover,
+        .photo-card:nth-child(3):hover,
+        .photo-card:nth-child(4):hover,
+        .photo-card:nth-child(5):hover,
+        .photo-card:nth-child(6):hover {
+            transform: translateY(-8px) rotate(0deg);
+        }
+
+        /* =========================
+           PHOTO
+        ========================== */
+
+        .photo-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            display: block;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+        .photo-card:hover .photo-wrapper img {
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           CAPTION
+        ========================== */
+
+        .caption {
+            padding: 15px 5px 0;
+        }
+
+        .caption h2 {
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .caption p {
+            margin-top: 5px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 900px) {
+            .gallery-wall {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 30px 18px;
+            }
+
+            .gallery-header {
+                margin-bottom: 30px;
+            }
+
+            .gallery-wall {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .photo-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="gallery-container">
+
+        <header class="gallery-header">
+            <div class="eyebrow">Captured Moments</div>
+
+            <h1>Photo Gallery</h1>
+
+            <p>A collection of moments worth remembering.</p>
+        </header>
+
+
+        <section class="gallery-wall">
+
+            <!-- CARD 1 -->
+            <article class="photo-card">
+
+                <div class="photo-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85"
+                        alt="Mountain landscape"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="caption">
+                    <h2>Into the Wild</h2>
+                    <p>A quiet morning beyond the mountains.</p>
+                </div>
+
+            </article>
+
+
+            <!-- CARD 2 -->
+            <article class="photo-card">
+
+                <div class="photo-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85"
+                        alt="Ocean and beach"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="caption">
+                    <h2>Blue Horizon</h2>
+                    <p>Where the sky meets the sea.</p>
+                </div>
+
+            </article>
+
+
+            <!-- CARD 3 -->
+            <article class="photo-card">
+
+                <div class="photo-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85"
+                        alt="Sunlight through trees"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="caption">
+                    <h2>Golden Hour</h2>
+                    <p>Light finding its way through the trees.</p>
+                </div>
+
+            </article>
+
+
+            <!-- CARD 4 -->
+            <article class="photo-card">
+
+                <div class="photo-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85"
+                        alt="Forest"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="caption">
+                    <h2>Into the Forest</h2>
+                    <p>A path surrounded by silence.</p>
+                </div>
+
+            </article>
+
+
+            <!-- CARD 5 -->
+            <article class="photo-card">
+
+                <div class="photo-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=900&q=85"
+                        alt="Mountain valley"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="caption">
+                    <h2>Open Roads</h2>
+                    <p>Somewhere between here and there.</p>
+                </div>
+
+            </article>
+
+
+            <!-- CARD 6 -->
+            <article class="photo-card">
+
+                <div class="photo-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=85"
+                        alt="Landscape"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="caption">
+                    <h2>Stillness</h2>
+                    <p>A moment frozen in time.</p>
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
